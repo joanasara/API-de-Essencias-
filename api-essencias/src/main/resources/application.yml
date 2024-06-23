@@ -1,0 +1,14 @@
+api:
+  url: https://api.dev.grupoboticario.com.br/v1/essences-challenge
+  username: xmrGmb7PWFwSzzx6TBxxEGyA7n9zGaC7UWs6GWMruGZMGMNG
+  password: 0y1GaVyJ6szGu7O3dR2Ax8ijucQujxkUZs6Y715MiQ5hhLiEi6NAbfMJGHqpad96
+
+
+
+jwt:
+  secret: mySuperSecretKey
+  expiration: 36000000
+
+
+
+
