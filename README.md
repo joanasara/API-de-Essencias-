@@ -33,10 +33,17 @@ jwt:
   secret: mySuperSecretKey
   expiration: 36000000
 ```
-### Instruções de Instalação e Execução
+## Instruções de Instalação e Execução
+### Clone o repositório para sua máquina local
 ```bash
 git clone https://github.com/seu-usuario/api-essencias.git
 cd api-essencias
-
-
-
+```
+### Compile o projeto usando Maven
+```bash
+mvn clean install
+```
+### Rode a aplicação
+```bash
+mvn spring-boot:run
+```
