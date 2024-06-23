@@ -33,4 +33,3 @@ jwt:
   secret: mySuperSecretKey
   expiration: 36000000
 
-# Instruções de Instalação e Execução
