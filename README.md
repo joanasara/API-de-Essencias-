@@ -86,3 +86,13 @@ Exemplo de comando cURL
 ```bash
 curl -H "Authorization: Bearer <seu_token_jwt>" http://localhost:8080/essences/{id}
 ```
+
+## Autenticação
+Para obter um token JWT, faça uma requisição POST para /auth/login com suas credenciais de usuário.
+
+Exemplo de comando cURL
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"username":"admin", "password":"password"}' http://localhost:8080/auth/login
+```
+## Limitação de Taxa
+Cada cliente tem um limite de 5 requisições por minuto. Caso esse limite seja excedido, será retornada uma resposta com status 429 Too Many Requests.
