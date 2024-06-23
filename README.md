@@ -47,3 +47,42 @@ mvn clean install
 ```bash
 mvn spring-boot:run
 ```
+## Utilizando Docker (Opcional)
+
+Se desejar, você pode usar Docker para rodar o banco de dados ou outros serviços necessários. Para rodar a aplicação em um contêiner Docker.
+### Crie um Dockerfile no diretório raiz do projeto
+
+```bash
+FROM openjdk:11-jre-slim
+COPY target/api-essencias-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+### Construa a imagem Docker
+
+```bash
+docker build -t api-essencias
+```
+### Rode o contêiner
+
+```bash
+docker run -p 8080:8080 api-essencias
+```
+
+## Exemplos de Uso
+### Listar todas as essências
+
+Faça uma requisição GET para /essences.
+
+Exemplo de comando cURL
+
+```bash
+curl -H "Authorization: Bearer <seu_token_jwt>" http://localhost:8080/essences
+```
+## Detalhar uma essência específica
+Faça uma requisição GET para /essences/{id}.
+
+Exemplo de comando cURL
+
+```bash
+curl -H "Authorization: Bearer <seu_token_jwt>" http://localhost:8080/essences/{id}
+```
