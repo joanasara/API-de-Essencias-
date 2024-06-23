@@ -95,4 +95,4 @@ Exemplo de comando cURL
 curl -X POST -H "Content-Type: application/json" -d '{"username":"admin", "password":"password"}' http://localhost:8080/auth/login
 ```
 ## Limitação de Taxa
-Cada cliente tem um limite de 5 requisições por minuto. Caso esse limite seja excedido, será retornada uma resposta com status 429 Too Many Requests.
+Cada cliente tem um limite de 5 requisições por minuto. Caso esse limite seja excedido, será retornada uma resposta com status Limite de requisições excedido. Tente novamente mais tarde.
