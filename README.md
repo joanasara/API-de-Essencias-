@@ -126,7 +126,7 @@ AppConfig: Configuração do RestTemplate e ObjectMapper.
 SecurityConfig: Configuração global de segurança, incluindo autenticação com UserDetailsService e PasswordEncoder.
 
 
-## Desenho de solução]
+## Desenho de solução
 (![Untitled diagram-2024-06-24-012044](https://github.com/joanasara/API-de-Essencias-/assets/66474627/52142ea4-6e22-4a5d-b0c8-57cf226d284b)
 
 
