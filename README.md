@@ -96,3 +96,32 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"admin", "passw
 ```
 ## Limitação de Taxa
 Cada cliente tem um limite de 5 requisições por minuto. Caso esse limite seja excedido, será retornada uma resposta com status Limite de requisições excedido. Tente novamente mais tarde.
+
+## Implementação do Cache
+Eu criei um mecanismo de cache para armazenar as essências e detalhes de essências para melhorar a eficiência e reduzir a dependência de acessos frequentes à API externa.
+
+### EssenceCache:
+- Utilizou `ConcurrentHashMap` para armazenar e gerenciar o cache das essências e dos detalhes das essências (EssenciasResponseDto e EssenciaResponseDto).
+ O cache é expirado após 30 minutos para garantir que os dados estejam atualizados.
+
+### Controle de Acesso Volumétrico
+Implementei um controle de acesso volumétrico para limitar as requisições à sua API:
+LimiteBusca: Utilizou um contador simples (RequestCounter) para contar e limitar as requisições a 5 por minuto.
+
+### Segurança e Autenticação
+Implementei segurança avançada com JWT para autenticação de usuários na sua API:
+
+SecurityConfig, JwtRequestFilter, AuthController: Configurei Spring Security para exigir autenticação via JWT para todos os endpoints (/essences/**).
+O filtro JwtRequestFilter intercepta as requisições para validar e processar tokens JWT. AuthController gera tokens JWT após autenticação do usuário.
+
+### Gestão de Exceções
+Implementei gestão de exceções para lidar com erros específicos:
+
+EssenciaExceptionHandler: Tratamento de exceções personalizado para lidar com limites de requisição excedidos (SearchLimitExceededException) e outros erros gerais.
+
+### Configuração do Spring
+Configurei o Spring para injetar dependências e configurar beans necessários:
+
+AppConfig: Configuração do RestTemplate e ObjectMapper.
+SecurityConfig: Configuração global de segurança, incluindo autenticação com UserDetailsService e PasswordEncoder.
+
